@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Star, Download, Shield, Zap, Book } from "lucide-react";
+import { Check,Shield,} from "lucide-react";
 // import { Button } from "@/components/ui/button";
 // import { Card, CardContent } from "@/components/ui/card";
 // import { Badge } from "@/components/ui/badge";
@@ -25,10 +25,7 @@ const ProductSection = () => {
         }
     ];
 
-    const scrollToPayment = () => {
-        const element = document.getElementById('payment-form');
-        element?.scrollIntoView({ behavior: 'smooth' });
-    };
+   
 
     return (
         <section id="product-section" className="py-10 px-4 relative">
@@ -49,8 +46,8 @@ const ProductSection = () => {
                     <h2 className="text-4xl md:text-6xl font-bold gradient-text mb-1 pb-6 bg-gradient-to-r from-cyan-500 to-indigo-600 bg-clip-text text-transparent">
                         Wealth Wisdom books Collection 
                     </h2>
-                    <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-                        Hurry Download all time best selling books in Hindi. 📚
+                    <p className="text-lg text-black max-w-3xl mx-auto">
+                        Hurry Download all time best selling books in Hindi. 📚📚📚📚
                     </p>
                 </motion.div>
 

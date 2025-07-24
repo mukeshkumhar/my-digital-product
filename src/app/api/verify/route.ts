@@ -11,7 +11,7 @@ const razorpay = new Razorpay({
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, phone, payment_id, order_id, signature } = body;
+    const { phone, email, payment_id, order_id, signature } = body;
 
     if (!email || email.trim() === "") {
       return NextResponse.json(
@@ -57,7 +57,7 @@ export async function POST(req: Request) {
       from: `"Your Store" <${process.env.EMAIL_USER!}>`,
       to: email,
       subject: "Your Digital Product Download Link",
-      text: `Hi ${name},\n\nThank you for your purchase!\n\nDownload your product here: ${downloadLink}\n\nEnjoy!`,
+      text: `Hi ${phone},\n\nThank you for your purchase!\n\nDownload your product here: ${downloadLink}\n\nEnjoy!`,
     };
 
     await transporter.sendMail(mailOptions);

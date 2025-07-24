@@ -2,22 +2,22 @@
 
 import React, { useState } from "react";
 import Script from "next/script";
-import Particles from "react-tsparticles";
-import { motion, AnimatePresence } from "framer-motion";
-import ParticleBackground from "./pages/ParticleBackground";
-import HeroSection from "./pages/HeroSection";
+// import Particles from "react-tsparticles";
+import { motion} from "framer-motion";
+// import ParticleBackground from "./pages/ParticleBackground";
+// import HeroSection from "./pages/HeroSection";
 import ProductSection from "./pages/ProductSection";
-import HowToBuySection from "./pages/HowToBuySection";
-import Image from 'next/image';
-import Link from 'next/link';
-import banner from './images/banner.jpg';
+// import HowToBuySection from "./pages/HowToBuySection";
+// import Image from 'next/image';
+// import Link from 'next/link';
+// import banner from './images/banner.jpg';
 
 
 export default function HomePage() {
   const [formData, setFormData] = useState({ email: "", phone: "" });
   const [loading, setLoading] = useState(false);
   const [verifying, setVerifying] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  // const [currentSlide, setCurrentSlide] = useState(0);
 
   const images = [
     {
@@ -34,8 +34,8 @@ export default function HomePage() {
     },
   ];
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % images.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
+  // const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % images.length);
+  // const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -122,7 +122,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden">
+    <div className="relative bg-white min-h-screen flex flex-col items-center justify-center text-white overflow-hidden">
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       {/* <Image
         src={banner}
@@ -160,7 +160,7 @@ export default function HomePage() {
 
 
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -173,7 +173,7 @@ export default function HomePage() {
           <p className=" text-muted-foreground">
             Complete your purchase and get instant access to all digital products
           </p>
-        </motion.div>
+        </motion.div> */}
 
 
 
