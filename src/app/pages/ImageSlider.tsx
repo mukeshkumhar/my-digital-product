@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from 'next/image';
-import banner from '../images/banner.jpg'; // Update with your actual image path
+// import Image from 'next/image';
+// import banner from '../images/banner.jpg'; // Update with your actual image path
 
 
 const ImageSlider = () => {

@@ -19,20 +19,20 @@ export default function HomePage() {
   const [verifying, setVerifying] = useState(false);
   // const [currentSlide, setCurrentSlide] = useState(0);
 
-  const images = [
-    {
-      src: "https://surejob.in/wp-content/uploads/2022/03/Untitled-design-2.jpg",
-      alt: "Product 1",
-    },
-    {
-      src: "https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg",
-      alt: "Product 2",
-    },
-    {
-      src: "https://surejob.in/wp-content/uploads/2022/03/Untitled-design-2.jpg",
-      alt: "Product 3",
-    },
-  ];
+  // const images = [
+  //   {
+  //     src: "https://surejob.in/wp-content/uploads/2022/03/Untitled-design-2.jpg",
+  //     alt: "Product 1",
+  //   },
+  //   {
+  //     src: "https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg",
+  //     alt: "Product 2",
+  //   },
+  //   {
+  //     src: "https://surejob.in/wp-content/uploads/2022/03/Untitled-design-2.jpg",
+  //     alt: "Product 3",
+  //   },
+  // ];
 
   // const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % images.length);
   // const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
