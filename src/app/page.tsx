@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Script from "next/script";
 import { motion } from "framer-motion";
 import ProductSection from "./pages/ProductSection";
+import RazorpayButton from "./pages/RazorpayButton";
 
 interface RazorpayPaymentResponse {
   razorpay_payment_id: string;
@@ -79,6 +80,7 @@ export default function HomePage() {
               alert("✅ Payment successful! Download starting...");
               const a = document.createElement("a");
               a.href = verifyData.downloadLink;
+              // window.open(verifyData.downloadLink, "_blank");
               a.download = "";
               document.body.appendChild(a);
               a.click();
@@ -121,7 +123,13 @@ export default function HomePage() {
         transition={{ duration: 1, delay: 0.5 }}
         className="relative w-full p-5 mb-10 max-w-xl"
       >
-        <div className="bg-gray-800 p-6 rounded-lg border border-gray-600 hover:shadow-xl shadow-blue-900/35 transition-shadow duration-300">
+        <div className="bg-gray-800 p-6 flex flex-col items-center rounded-lg border border-gray-600 hover:shadow-xl shadow-blue-900/35 transition-shadow duration-300">
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-indigo-600 bg-clip-text text-transparent">Complete Your Purchase</h1>
+          <RazorpayButton />
+
+          
+          {/* <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_Qx0UdpA7KNDUuA" async> </script> </form> */}
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="tel"
@@ -157,6 +165,7 @@ export default function HomePage() {
                   : "🚀 Pay Now"}
             </button>
           </form>
+
         </div>
       </motion.div>
 

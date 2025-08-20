@@ -117,14 +117,14 @@ const ProductSection = () => {
                                     {features.map((feature, index) => (
                                         <motion.div
                                             key={index}
-                                            className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                                            className="flex  items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors"
                                             initial={{ opacity: 0, x: -20 }}
                                             whileInView={{ opacity: 1, x: 0 }}
                                             viewport={{ once: true }}
                                             transition={{ delay: index * 0.1 }}
                                         >
                                             <div className="text-primary">{feature.icon}</div>
-                                            <span className="text-foreground">{feature.text}</span>
+                                            <span className="text-white">{feature.text}</span>
                                             <Check className="h-5 w-5 text-green-400 ml-auto" />
                                         </motion.div>
                                     ))}

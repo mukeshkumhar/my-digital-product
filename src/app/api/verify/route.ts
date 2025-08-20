@@ -1,3 +1,4 @@
+import { buildPurchaseEmailHTML } from './email';
 import { NextResponse } from "next/server";
 import Razorpay from "razorpay";
 import crypto from "crypto";
@@ -52,12 +53,27 @@ export async function POST(req: Request) {
       },
     });
 
+    const html = buildPurchaseEmailHTML({
+      customerName: email.split("@")[0],    // use phone until you capture name
+      orderId: order_id,                             // show Razorpay order id
+      productName: "Top 5 Selling Books in Hindi PDF",
+      price: `₹499`,
+      quantity: 1,
+      downloadLink: process.env.DOWNLOAD_LINK || "https://yourdomain.com/download",
+      brandName: "Your Ebook Shop",
+      brandUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://seecogsoftwares.com",
+      logoUrl: process.env.EMAIL_BRAND_LOGO || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcqdXGwcNa7EqyT6CpilL3p93dsKvHarBWCA&s",   // optional absolute URL
+      accent: "#6b21a8",                             // matches your reference email
+    });
+
     const downloadLink = process.env.DOWNLOAD_LINK!;
     const mailOptions = {
-      from: `"Your Store" <${process.env.EMAIL_USER!}>`,
+      from: `"Your Ebook Shop" <${process.env.EMAIL_USER!}>`,
       to: email,
-      subject: "Your Digital Product Download Link",
-      text: `Hi ${phone},\n\nThank you for your purchase!\n\nDownload your product here: ${downloadLink}\n\nEnjoy!`,
+      subject: "Thank you for your purchase!",
+      text: `Hi ${phone}`,
+      html,
+      
     };
 
     await transporter.sendMail(mailOptions);
