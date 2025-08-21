@@ -8,29 +8,9 @@ import { Check, Shield } from "lucide-react";
 // import { Badge } from "@/components/ui/badge";
 import ImageSlider from "./ImageSlider";
 
+import productData from "@/./app/data/products.json"; // Assuming you have product data in a JSON file
+
 const ProductSection = () => {
-    const features = [
-        {
-            icon: <Shield className="text-green-400 h-5 w-5" />,
-            text:
-                "Expertly Written Hindi Summaries Clear, easy- to - understand breakdowns of 5 best - selling financial books in pure Hindi.",
-        },
-        {
-            icon: <Shield className="text-green-400 h-5 w-5" />,
-            text:
-                "Chapter-wise Breakdown Each book is summarized chapter by chapter, capturing every key idea and principle.",
-        },
-        {
-            icon: <Shield className="text-green-400 h-5 w-5" />,
-            text:
-                "Key Learnings & Concepts at a Glance Highlighted points, simplified financial lessons, and deep insights from each book.",
-        },
-        {
-            icon: <Shield className="text-green-400 h-5 w-5" />,
-            text:
-                "Attractive Visual Design Richly designed pages with illustrations, infographics, icons, and charts to make reading fun",
-        },
-    ];
 
     return (
         <section id="product-section" className="py-10 px-4 relative">
@@ -44,14 +24,14 @@ const ProductSection = () => {
                 >
                     <div className="flex justify-center">
                         <div className="mb-4 px-4 py-2 text-sm text-black bg-amber-500 border-1 rounded-2xl w-fit">
-                            🎯 Limited Time Offer
+                            🎯 {productData.products[0].offer_line}
                         </div>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-bold gradient-text mb-1 pb-6 bg-gradient-to-r from-cyan-500 to-indigo-600 bg-clip-text text-transparent">
-                        Wealth Wisdom books Collection
+                        {productData.products[0].title}
                     </h2>
                     <p className="text-lg text-black max-w-3xl mx-auto">
-                        Hurry Download all time best selling books in Hindi. 📚📚📚📚
+                        {productData.products[0].subtitle}
                     </p>
                 </motion.div>
 
@@ -78,26 +58,24 @@ const ProductSection = () => {
                         <div className="border-1 border-gray-700 rounded-2xl bg-gray-900 p-6">
                             <div className="p-0">
                                 <div className="flex items-center gap-4 mb-6">
-                                    <span className="text-4xl font-bold text-sky-500">₹199</span>
+                                    <span className="text-4xl font-bold text-sky-500">₹{productData.products[0].price_display}</span>
                                     <span className="text-2xl text-gray-400 line-through">
-                                        ₹499
+                                        ₹{productData.products[0].mrp_display}
                                     </span>
                                     <div className="bg-red-500/20 text-red-400 rounded-lg text-sm/4 px-3 py-1 border-1 border-red-400">
-                                        50% OFF
+                                        {productData.products[0].offer}
                                     </div>
                                 </div>
 
                                 <div className="text-gray-200 mb-6 ">
-                                    What you will get in this purchase.<b>(Top 5 selling books in Hindi PDF)</b>
-                                    <ul>
-                                        <li>👉🏼 Rich Dad Poor Dad – by Robert T. Kiyosaki</li>
-                                        <li>👉🏼 Think and Grow Rich – by Napoleon Hill</li>
-                                        <li>
-                                            👉🏼 The Millionaire Next Door – by Thomas J. Stanley & William D. Danko
-                                        </li>
-                                        <li>👉🏼 The Richest Man in Babylon – by George S. Clason</li>
-                                        <li>👉🏼 Your Money or Your Life – by Vicki Robin & Joe Dominguez</li>
-                                    </ul>
+                                    {productData.products[0].description}<b>{productData.products[0].dis_bold}</b>
+                                    {productData.products[0].what_you_get.map((item, index) => (
+                                        <div key={index} className="flex items-center gap-2 mt-3">
+                                            <Check className="h-5 w-5 text-green-400" />
+                                            <span>{item}</span>
+                                        </div>
+                                    ))}
+
                                 </div>
 
                                 <p className="text-center text-sm text-muted-foreground">
@@ -111,10 +89,10 @@ const ProductSection = () => {
                             <div className="p-0">
                                 {/* ESCAPED APOSTROPHE BELOW */}
                                 <h3 className="text-xl font-bold mb-4 text-sky-500">
-                                    What&apos;s Included in each book:
+                                    What&apos;s Included in this Purchase:
                                 </h3>
                                 <div className="space-y-3">
-                                    {features.map((feature, index) => (
+                                    {productData.products[0].features.map((item, index) => (
                                         <motion.div
                                             key={index}
                                             className="flex  items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors"
@@ -123,11 +101,14 @@ const ProductSection = () => {
                                             viewport={{ once: true }}
                                             transition={{ delay: index * 0.1 }}
                                         >
-                                            <div className="text-primary">{feature.icon}</div>
-                                            <span className="text-white">{feature.text}</span>
-                                            <Check className="h-5 w-5 text-green-400 ml-auto" />
+                                            <div key={index} className="flex items-center gap-2">
+                                                <Shield className="h-10 w-10 text-green-400 mr-1" />
+                                                <span>{item}</span>
+                                                <Check className="h-8 w-8 text-green-400 ml-auto" />
+                                            </div>
                                         </motion.div>
                                     ))}
+
                                 </div>
                             </div>
                         </div>

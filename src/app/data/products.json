@@ -1,0 +1,30 @@
+{
+    "currency": "INR",
+    "products": [
+        {
+            "id": "wealth-wisdom-hindi",
+            "offer_line": "Limited Time Offer",
+            "title": "Wealth Wisdom Books Collection",
+            "subtitle": "Hurry Download all time best selling books in Hindi. 📚📚📚📚",
+            "price_display": 199,
+            "mrp_display": 499,
+            "offer": "50% OFF",
+            "description": "Hurry! Download all-time best selling finance books in Hindi. Clean, printable PDFs.",
+            "dis_bold": "Top 5 selling books in Hindi PDF",
+            "what_you_get": [
+                "Rich Dad Poor Dad – Robert T. Kiyosaki",
+                "Think and Grow Rich – Napoleon Hill",
+                "The Millionaire Next Door – T.J. Stanley & W.D. Danko",
+                "The Richest Man in Babylon – George S. Clason",
+                "Your Money or Your Life – Vicki Robin & Joe Dominguez"
+            ],
+            "features": [
+                "Expertly Written Hindi Summaries Clear, easy- to - understand breakdowns of 5 best - selling financial books in pure Hindi.",
+                "Chapter-wise Breakdown Each book is summarized chapter by chapter, capturing every key idea and principle.",
+                "Key Learnings & Concepts at a Glance Highlighted points, simplified financial lessons, and deep insights from each book.",
+                "Attractive Visual Design Richly designed pages with illustrations, infographics, icons, and charts to make reading fun"
+            ],
+            "download_url": "https://yourdomain.com/downloads/wealth-wisdom-hindi"
+        }
+    ]
+}

@@ -3,11 +3,14 @@ import { NextResponse } from "next/server";
 import Razorpay from "razorpay";
 import crypto from "crypto";
 import nodemailer from "nodemailer";
+import productPrice from "@/app/data/products.json";
 
 const razorpay = new Razorpay({
   key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY!,
   key_secret: process.env.RAZORPAY_SECRET!,
 });
+
+const price  = productPrice.products[0].price_display;
 
 export async function POST(req: Request) {
   try {
@@ -23,7 +26,7 @@ export async function POST(req: Request) {
 
     if (!payment_id) {
       const order = await razorpay.orders.create({
-        amount: 49900,
+        amount: price * 100, // convert to rupees
         currency: "INR",
         receipt: `receipt_order_${Math.random()}`,
       });
