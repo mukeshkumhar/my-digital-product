@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import imageSlider from "@/app/data/products.json"; // Assuming you have product data in a JSON file
 // import Image from 'next/image';
 // import banner from '../images/banner.jpg'; // Update with your actual image path
 
@@ -8,34 +9,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const ImageSlider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    // Placeholder product images
-    const slides = [
-        {
-            id: 1,
-            image: "https://ik.imagekit.io/jejxgl1wi/ChatGPT%20Image%20Jul%2023,%202025,%2011_13_17%20PM.png?updatedAt=1753292619461",
-            title: "Finance Classics Mega-Pack",
-            description: "Grow rich, think smart, live free download all-time bestsellers."
-        },
-        // {
-        //     id: 2,
-        //     image: "https://m.media-amazon.com/images/I/91UP2DOLUhL.jpg",
-        //     title: "Professional Templates",
-        //     description: "Premium design templates for your business"
-        // },
-        // {
-        //     id: 3,
-        //     image: "https://currentaffairs.adda247.com/wp-content/uploads/multisite/sites/5/2024/06/24161033/Top-10-Famous-Books-of-Ruskin-Bond.png",
-        //     title: "Automation Tools",
-        //     description: "Streamline your workflow with our tools"
-        // }
-    ];
+    
 
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setCurrentSlide((prev) => (prev + 1) % imageSlider.products[0].image_slider.length);
     };
 
     const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+        setCurrentSlide((prev) => (prev - 1 + imageSlider.products[0].image_slider.length) % imageSlider.products[0].image_slider.length);
     };
 
     const goToSlide = (index: number) => {
@@ -57,7 +38,7 @@ const ImageSlider = () => {
                     >
                         <div
                             className="w-full h-full bg-cover bg-center bg-no-repeat relative"
-                            style={{ backgroundImage: `url(${slides[currentSlide].image}?w=800&h=500&fit=crop&crop=center)` }}
+                            style={{ backgroundImage: `url(${imageSlider.products[0].image_slider[currentSlide].image}?w=800&h=500&fit=crop&crop=center)` }}
                         >
                             {/* Dark overlay */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -70,7 +51,7 @@ const ImageSlider = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 }}
                                 >
-                                    {slides[currentSlide].title}
+                                    {imageSlider.products[0].image_slider[currentSlide].title}
                                 </motion.h3>
                                 <motion.p
                                     className="text-lg opacity-90"
@@ -78,7 +59,7 @@ const ImageSlider = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3 }}
                                 >
-                                    {slides[currentSlide].description}
+                                    {imageSlider.products[0].image_slider[currentSlide].description}
                                 </motion.p>
                             </div>
                         </div>
@@ -119,7 +100,7 @@ const ImageSlider = () => {
 
             {/* Dot indicators */}
             <div className="flex justify-center mt-6 space-x-3">
-                {slides.map((_, index) => (
+                {imageSlider.products[0].image_slider.map((_, index) => (
                     <button
                         key={index}
                         className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide

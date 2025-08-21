@@ -6,6 +6,14 @@
             "offer_line": "Limited Time Offer",
             "title": "Wealth Wisdom Books Collection",
             "subtitle": "Hurry Download all time best selling books in Hindi. 📚📚📚📚",
+            "image_slider": [
+                {
+                    "id": 1,
+                    "image": "https://ik.imagekit.io/jejxgl1wi/ChatGPT%20Image%20Jul%2023,%202025,%2011_13_17%20PM.png?updatedAt=1753292619461",
+                    "title": "Finance Classics Mega-Pack",
+                    "description": "Grow rich, think smart, live free download all-time bestsellers."
+                }
+            ],
             "price_display": 199,
             "mrp_display": 499,
             "offer": "50% OFF",

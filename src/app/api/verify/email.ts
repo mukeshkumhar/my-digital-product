@@ -6,8 +6,6 @@ export function buildPurchaseEmailHTML({
     quantity = 1,
     downloadLink,
     brandName = "Your Store",
-    brandUrl = "https://seecogsoftwares.com",
-    logoUrl = "", // optional absolute URL
     accent = "#6b21a8", // purple like your screenshot
 }: {
     customerName?: string;
